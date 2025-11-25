@@ -2,7 +2,7 @@ import * as React from "react";
 
 interface UseChatStateProps {
   endpoint: string;
-  onSuccess?: (response: string) => void;
+  onSuccess?: (response: any) => void;
   onError?: (error: string) => void;
 }
 
@@ -13,7 +13,7 @@ export function useChatState({
 }: UseChatStateProps) {
   const [loading, setLoading] = React.useState(false);
   const [value, setValue] = React.useState("");
-  const [response, setResponse] = React.useState<string | null>(null);
+  const [response, setResponse] = React.useState<any>(null);
   const [error, setError] = React.useState<string | null>(null);
   const [copied, setCopied] = React.useState(false);
   const [selectedTopic, setSelectedTopic] = React.useState("");
@@ -43,8 +43,10 @@ export function useChatState({
         const data = await res.json();
         if (!res.ok) throw new Error(data?.error ?? "Error desconocido");
 
-        setResponse(data.text);
-        onSuccess?.(data.text);
+        // Manejar tanto respuestas de texto como estructuradas
+        const responseData = data.text ? data.text : data;
+        setResponse(responseData);
+        onSuccess?.(responseData);
       } catch (e) {
         const errorMsg =
           e instanceof Error ? e.message : "Error al contactar con el modelo";
@@ -59,7 +61,11 @@ export function useChatState({
 
   const copyToClipboard = React.useCallback(() => {
     if (response) {
-      navigator.clipboard.writeText(response);
+      const textToCopy =
+        typeof response === "string"
+          ? response
+          : JSON.stringify(response, null, 2);
+      navigator.clipboard.writeText(textToCopy);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     }

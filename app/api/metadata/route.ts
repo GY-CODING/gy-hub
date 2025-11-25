@@ -1,5 +1,7 @@
+import clientPromise from "@/lib/mongodb";
 import { GoogleGenAI } from "@google/genai";
-import { NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
+
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
@@ -19,14 +21,38 @@ export async function POST(req: NextRequest) {
     const client = await clientPromise;
     // GYAccounts
     const dbAccounts = client.db("GYAccounts");
-    const accountsMetadata = await dbAccounts.collection("Metadata").find({}).limit(100).toArray();
-    const accountsAuthPicture = await dbAccounts.collection("AuthPicture").find({}).limit(100).toArray();
+    const accountsMetadata = await dbAccounts
+      .collection("Metadata")
+      .find({})
+      .limit(100)
+      .toArray();
+    const accountsAuthPicture = await dbAccounts
+      .collection("AuthPicture")
+      .find({})
+      .limit(100)
+      .toArray();
     // GYBooks
     const dbBooks = client.db("GYBooks");
-    const booksBook = await dbBooks.collection("Book").find({}).limit(100).toArray();
-    const booksBookPublic = await dbBooks.collection("BookPublic").find({}).limit(100).toArray();
-    const booksFriendRequest = await dbBooks.collection("FriendRequest").find({}).limit(100).toArray();
-    const booksMetadata = await dbBooks.collection("Metadata").find({}).limit(100).toArray();
+    const booksBook = await dbBooks
+      .collection("Book")
+      .find({})
+      .limit(100)
+      .toArray();
+    const booksBookPublic = await dbBooks
+      .collection("BookPublic")
+      .find({})
+      .limit(100)
+      .toArray();
+    const booksFriendRequest = await dbBooks
+      .collection("FriendRequest")
+      .find({})
+      .limit(100)
+      .toArray();
+    const booksMetadata = await dbBooks
+      .collection("Metadata")
+      .find({})
+      .limit(100)
+      .toArray();
     const apiKey = process.env.GEMINI_API_KEY;
     if (!apiKey) {
       return NextResponse.json(
@@ -36,12 +62,29 @@ export async function POST(req: NextRequest) {
     }
     const ai = new GoogleGenAI({ apiKey });
     // Construir contexto con todos los datos
-    const contextText = `Datos de GYAccounts.Metadata:\n${JSON.stringify(accountsMetadata).slice(0, 4000)}\n\n` +
-      `Datos de GYAccounts.AuthPicture:\n${JSON.stringify(accountsAuthPicture).slice(0, 4000)}\n\n` +
-      `Datos de GYBooks.Book:\n${JSON.stringify(booksBook).slice(0, 4000)}\n\n` +
-      `Datos de GYBooks.BookPublic:\n${JSON.stringify(booksBookPublic).slice(0, 4000)}\n\n` +
-      `Datos de GYBooks.FriendRequest:\n${JSON.stringify(booksFriendRequest).slice(0, 4000)}\n\n` +
-      `Datos de GYBooks.Metadata:\n${JSON.stringify(booksMetadata).slice(0, 4000)}`;
+    const contextText =
+      `Datos de GYAccounts.Metadata:\n${JSON.stringify(accountsMetadata).slice(
+        0,
+        4000
+      )}\n\n` +
+      `Datos de GYAccounts.AuthPicture:\n${JSON.stringify(
+        accountsAuthPicture
+      ).slice(0, 4000)}\n\n` +
+      `Datos de GYBooks.Book:\n${JSON.stringify(booksBook).slice(
+        0,
+        4000
+      )}\n\n` +
+      `Datos de GYBooks.BookPublic:\n${JSON.stringify(booksBookPublic).slice(
+        0,
+        4000
+      )}\n\n` +
+      `Datos de GYBooks.FriendRequest:\n${JSON.stringify(
+        booksFriendRequest
+      ).slice(0, 4000)}\n\n` +
+      `Datos de GYBooks.Metadata:\n${JSON.stringify(booksMetadata).slice(
+        0,
+        4000
+      )}`;
     const response = await ai.models.generateContent({
       model: "gemini-2.5-flash",
       contents: [
@@ -56,8 +99,6 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Error" }, { status: 500 });
   }
 }
-import clientPromise from "@/lib/mongodb";
-import { NextResponse } from "next/server";
 
 export async function GET() {
   try {

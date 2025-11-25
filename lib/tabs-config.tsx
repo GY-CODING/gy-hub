@@ -1,4 +1,4 @@
-import { Database, LucideIcon } from "lucide-react";
+import { LucideIcon } from "lucide-react";
 import * as React from "react";
 
 export interface TabConfig {
@@ -26,7 +26,7 @@ export const TABS_CONFIG: TabConfig[] = [
     label: "GYCODING",
     shortLabel: "GY",
     icon: <img src="/icons/gy-logo.svg" alt="Stormlight" className="size-6" />,
-    endpoint: "/api/gemini",
+    endpoint: "/api/assistants/gycoding",
     placeholder: "¿En qué puedo ayudarte?",
     title: "GYCODING",
     assistantName: "GY CODING",
@@ -36,7 +36,7 @@ export const TABS_CONFIG: TabConfig[] = [
       {
         value: "api",
         label: "📚 API",
-        endpoint: "/api/gemini/api",
+        endpoint: "/api/assistants/api-docs",
         placeholder:
           "Pregunta sobre APIs, endpoints, métodos HTTP, documentación...",
       },
@@ -49,7 +49,7 @@ export const TABS_CONFIG: TabConfig[] = [
       {
         value: "code-review",
         label: "🔍 Code Review",
-        endpoint: "/api/gemini/code-review",
+        endpoint: "/api/assistants/code-review",
         placeholder:
           "Pega código o URLs de GitHub para revisar (ej: https://github.com/usuario/repo)...",
       },
@@ -66,12 +66,12 @@ export const TABS_CONFIG: TabConfig[] = [
         className="size-6"
       />
     ),
-    endpoint: "/api/heralds",
+    endpoint: "/api/assistants/heralds",
     placeholder: "¿Qué quieres saber sobre Heralds of Chaos?",
     title: "Heralds of Chaos AI",
     assistantName: "Mimir",
     assistantAvatar:
-      "https://cdna.artstation.com/p/assets/images/images/056/598/916/large/angelo-mimir-crop.jpg?1670439858", // Pon tu URL aquí
+      "https://cdna.artstation.com/p/assets/images/images/056/598/916/large/angelo-mimir-crop.jpg?1670439858",
   },
   {
     key: "stormlight",
@@ -80,16 +80,28 @@ export const TABS_CONFIG: TabConfig[] = [
     icon: (
       <img src="/icons/stormlight.svg" alt="Stormlight" className="size-6" />
     ),
-    endpoint: "/api/stormlight",
+    endpoint: "/api/assistants/stormlight",
     placeholder: "¿Qué quieres saber sobre Stormlight Archive RPG?",
     title: "Stormlight Archive AI",
     assistantName: "PADRE TORMENTA",
     assistantAvatar:
-      "https://static.wikia.nocookie.net/stormlightarchive/images/5/55/Sf_CC.jpg/revision/latest?cb=20191103002947", // Pon tu URL aquí
+      "https://uploads.coppermind.net/thumb/Stormfather.png/1200px-Stormfather.png",
     topics: [
       { value: "handbook", label: "Handbook - Reglas del juego" },
       { value: "world-guide", label: "World Guide - Guía del mundo" },
       { value: "first-steps", label: "First Steps - Primeros pasos" },
     ],
+  },
+  {
+    key: "mtg",
+    label: "Magic: The Gathering",
+    shortLabel: "MTG",
+    icon: <img src="/icons/mtg.svg" alt="MTG" className="size-4" />,
+    endpoint: "/api/assistants/mtg",
+    placeholder: "Busca cartas, pregunta sobre reglas, mazos o estrategias...",
+    title: "Magic: The Gathering AI",
+    assistantName: "Planeswalker",
+    assistantAvatar:
+      "https://cards.scryfall.io/art_crop/front/2/8/28c93319-e235-4115-8c24-f3c6a6e5c1e5.jpg",
   },
 ];
