@@ -133,8 +133,6 @@ export async function POST(req: Request) {
       }
     }
 
-    console.log("Intent Data:", intentData);
-
     let resultData: {
       type: string;
       content?: string;

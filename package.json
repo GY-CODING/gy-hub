@@ -14,6 +14,8 @@
     "@google/genai": "^1.29.1",
     "@google/generative-ai": "^0.24.1",
     "@gycoding/nebula": "^1.0.8",
+    "@react-pdf-viewer/core": "^3.12.0",
+    "@react-pdf-viewer/default-layout": "^3.12.0",
     "animate-ui": "^0.0.4",
     "autoprefixer": "^10.4.22",
     "class-variance-authority": "^0.7.1",
