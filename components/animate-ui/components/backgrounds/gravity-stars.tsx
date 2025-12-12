@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 
-import { cn } from '@/lib/utils';
+import { cn } from '@/app/lib/utils/cn';
 
 type MouseGravity = 'attract' | 'repel';
 type GlowAnimation = 'instant' | 'ease' | 'spring';

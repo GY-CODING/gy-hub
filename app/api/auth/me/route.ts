@@ -1,4 +1,4 @@
-import { auth0 } from '@/lib/auth0';
+import { auth0 } from '@/app/lib/auth0';
 import { MongoClient } from 'mongodb';
 import { NextResponse } from 'next/server';
 

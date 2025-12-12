@@ -25,7 +25,13 @@ export const TABS_CONFIG: TabConfig[] = [
     key: "gycoding",
     label: "GYCODING",
     shortLabel: "GY",
-    icon: <img src="/icons/gy-logo.svg" alt="Stormlight" className="size-6" />,
+    icon: (
+      <img
+        src="/icons/gy-logo.svg"
+        alt="Stormlight"
+        className="size-5 sm:size-6"
+      />
+    ),
     endpoint: "/api/assistants/gycoding",
     placeholder: "¿En qué puedo ayudarte?",
     title: "GYCODING",
@@ -63,7 +69,7 @@ export const TABS_CONFIG: TabConfig[] = [
       <img
         src="https://github.com/GY-CODING/img-repo/blob/main/fall-of-the-gods/other/fotg-logo-white.png?raw=true"
         alt="Stormlight"
-        className="size-6"
+        className="size-5 sm:size-6"
       />
     ),
     endpoint: "/api/assistants/heralds",
@@ -78,7 +84,11 @@ export const TABS_CONFIG: TabConfig[] = [
     label: "Stormlight",
     shortLabel: "Storm",
     icon: (
-      <img src="/icons/stormlight.svg" alt="Stormlight" className="size-6" />
+      <img
+        src="/icons/stormlight.svg"
+        alt="Stormlight"
+        className="size-5 sm:size-6"
+      />
     ),
     endpoint: "/api/assistants/stormlight",
     placeholder: "¿Qué quieres saber sobre Stormlight Archive RPG?",
@@ -96,7 +106,7 @@ export const TABS_CONFIG: TabConfig[] = [
     key: "mtg",
     label: "Magic: The Gathering",
     shortLabel: "MTG",
-    icon: <img src="/icons/mtg.svg" alt="MTG" className="size-4" />,
+    icon: <img src="/icons/mtg.svg" alt="MTG" className="size-4 sm:size-5" />,
     endpoint: "/api/assistants/mtg",
     placeholder: "Busca cartas, pregunta sobre reglas, mazos o estrategias...",
     title: "Magic: The Gathering AI",

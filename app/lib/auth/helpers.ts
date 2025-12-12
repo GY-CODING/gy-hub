@@ -1,6 +1,6 @@
 import { getSession } from "@auth0/nextjs-auth0/server";
 import { NextResponse } from "next/server";
-import { UserRole, Permission, hasPermission } from "@/lib/permissions";
+import { UserRole, Permission, hasPermission } from "./permissions";
 
 export interface AuthUser {
   sub: string;

@@ -1,5 +1,5 @@
 import type { NextRequest } from "next/server";
-import { auth0 } from "./lib/auth0";
+import { auth0 } from "./app/lib/auth0";
 
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;

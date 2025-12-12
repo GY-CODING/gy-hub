@@ -253,17 +253,26 @@ interface ApiDoc {
 
 ### 2. **Heralds of Chaos** (`/api/assistants/heralds`)
 
-**Propósito**: Asistente sobre la historia "Heralds of Chaos"
+**Propósito**: Asistente sobre la historia "Heralds of Chaos" con personalidad de Mímir
 
 **Modelo**: `gemini-2.5-flash`
 
-**Contexto**: Archivo `/public/files/heralds-of-chaos-story.md`
+**Personalidad**: Mímir, el sabio consejero de la mitología nórdica
+
+**Base de Datos**: `HeraldsOfChaos._AI` (MongoDB)
 
 **Funcionalidad**:
 
-- Responde preguntas sobre personajes, eventos, lugares
-- Explica relaciones entre personajes
-- Proporciona cronología de eventos
+- Responde preguntas sobre la historia con estilo narrativo épico
+- Usa expresiones nórdicas y lenguaje poético
+- Carga toda la colección de documentos de historia desde MongoDB
+- Mantiene tono misterioso y dramático característico de Mímir
+
+**Características**:
+
+- **Narración Épica**: Comienza respuestas con frases como "Ah, preguntas sobre...", "Las sagas cuentan que..."
+- **Referencias Mitológicas**: Usa metáforas como "oscuro como el Niflheim", "brillante como el Bifrost"
+- **Contexto Completo**: Carga todos los documentos de historia de MongoDB para respuestas precisas
 
 ---
 

@@ -8,7 +8,7 @@ import {
   type AvatarGroupProps as AvatarGroupPropsPrimitive,
   type AvatarGroupTooltipProps as AvatarGroupTooltipPropsPrimitive,
 } from '@/components/animate-ui/primitives/animate/avatar-group';
-import { cn } from '@/lib/utils';
+import { cn } from '@/app/lib/utils/cn';
 
 type AvatarGroupProps = AvatarGroupPropsPrimitive;
 

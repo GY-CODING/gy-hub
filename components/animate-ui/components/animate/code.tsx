@@ -7,9 +7,9 @@ import {
   CodeBlock as CodeBlockPrimitive,
   type CodeBlockProps as CodeBlockPropsPrimitive,
 } from '@/components/animate-ui/primitives/animate/code-block';
-import { cn } from '@/lib/utils';
+import { cn } from '@/app/lib/utils/cn';
 import { CopyButton } from '@/components/animate-ui/components/buttons/copy';
-import { getStrictContext } from '@/lib/get-strict-context';
+import { getStrictContext } from '@/app/lib/utils/context';
 
 type CodeContextType = {
   code: string;
