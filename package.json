@@ -1,12 +1,12 @@
 {
-  "name": "gy-hub",
+  "name": "gy-ai-assistant",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint",
+    "lint": "eslinelt",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,css,md}\""
   },
   "dependencies": {

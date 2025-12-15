@@ -108,6 +108,32 @@ gy-hub/
 
 ---
 
+## 🧰 Stack Tecnológico
+
+### Frontend
+
+- **Next.js 15**: App Router, Server/Client Components
+- **React 19**: UI moderna con concurrent features
+- **TypeScript**: Tipado estricto (evitar `any`)
+- **Tailwind CSS**: Estilos utility-first
+- **shadcn/ui**: Componentes sobre Radix UI
+- **AnimateUI**: Librería de animaciones (terceros)
+
+### Backend & APIs
+
+- **Next.js API Routes**: Endpoints REST bajo `app/api`
+- **Google Gemini 2.5 Flash**: IA generativa
+- **MongoDB**: Datos en tiempo real
+- **Auth0**: Autenticación y autorización
+- **Scryfall API**: Datos autoritativos de MTG
+
+### Calidad
+
+- **ESLint 9+**: Linting con config de Next
+- **Prettier**: Formateo automático
+- **TypeScript Strict**: Máxima seguridad de tipos
+
+---
 ## 📐 Principios de Arquitectura
 
 ### Clean Architecture & SOLID
@@ -911,6 +937,22 @@ pnpm dev
 La aplicación estará disponible en \`http://localhost:3000\`
 
 ---
+## 🚀 Scripts Disponibles
+
+```bash
+# Desarrollo
+npm run dev
+
+# Producción
+npm run build
+npm start
+
+# Calidad de código
+npm run lint     # Ejecuta ESLint
+npm run format   # Formatea con Prettier
+```
+
+---
 
 ## 🔄 Flujo de Funcionamiento
 
@@ -964,14 +1006,14 @@ ChatResponse: Construye URL de imagen
 
 ## 🎯 Tabs y Endpoints
 
-| Tab            | Icon | Endpoint                    | Descripción                    |
-| -------------- | ---- | --------------------------- | ------------------------------ |
-| **GYCODING**   | 🏢   | \`/api/gemini\`             | IA general de GYCODING         |
-| ↳ API          | 🔌   | \`/api/gemini/api\`         | Consulta APIs en MongoDB       |
-| ↳ Code Review  | 👨‍💻   | \`/api/gemini/code-review\` | Revisa código de GitHub        |
-| **Heralds**    | ⚔️   | \`/api/heralds\`            | Historia de Heralds of Chaos   |
-| **Stormlight** | 📖   | \`/api/stormlight\`         | RPG de Stormlight Archive      |
-| **MTG**        | 🎴   | \`/api/gemini/mtg\`         | Cartas de Magic: The Gathering |
+| Tab            | Icon | Endpoint                           | Descripción                     |
+| -------------- | ---- | ---------------------------------- | ------------------------------- |
+| **GYCODING**   | 🏢   | `/api/assistants/gycoding`         | IA general de GYCODING          |
+| ↳ API Docs     | 🔌   | `/api/assistants/api-docs`         | Consulta APIs en MongoDB        |
+| ↳ Code Review  | 👨‍💻  | `/api/assistants/code-review`       | Revisión de código de GitHub    |
+| **Heralds**    | ⚔️   | `/api/assistants/heralds`          | Historia de Heralds of Chaos    |
+| **Stormlight** | 📖   | `/api/assistants/stormlight`       | RPG de Stormlight Archive       |
+| **MTG**        | 🎴   | `/api/assistants/mtg`              | Cartas de Magic: The Gathering  |
 
 ---
 
